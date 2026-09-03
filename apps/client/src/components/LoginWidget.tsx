@@ -20,30 +20,37 @@ const LoginWidget: React.FC = () => {
   };
 
   return (
-    <section className={styles.card} aria-labelledby="login-title">
-      <div className={styles.brandMark} aria-hidden="true">
-        I
+    <section className={styles.authContainer} aria-labelledby="login-title">
+      <div className={styles.dataBlock}>
+        <div className={styles.loginAuth}>
+          <div className={styles.logoBlock} aria-hidden="true">
+            <span className={styles.brandMark}>I</span>
+          </div>
+
+          <div className={styles.dataContent}>
+            <h1 className={styles.title} id="login-title">
+              Войдите в свой аккаунт
+            </h1>
+
+            {hasAuthenticationError && (
+              <p className={styles.authError} role="alert">
+                Не удалось войти через Telegram. Попробуйте ещё раз.
+              </p>
+            )}
+
+            <div className={styles.buttonGroup}>
+              <button
+                className={styles.telegramButton}
+                type="button"
+                onClick={handleTelegramLogin}
+              >
+                <TelegramIcon />
+                <span>Войти через Telegram</span>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <h1 className={styles.brand} id="login-title">
-        INFERNO
-      </h1>
-      <p className={styles.subtitle}>Authorization</p>
-
-      {hasAuthenticationError && (
-        <p className={styles.authError} role="alert">
-          Не удалось войти через Telegram. Попробуйте ещё раз.
-        </p>
-      )}
-
-      <button
-        className={styles.telegramButton}
-        type="button"
-        onClick={handleTelegramLogin}
-      >
-        <TelegramIcon />
-        <span>Войти через Telegram</span>
-      </button>
     </section>
   );
 };

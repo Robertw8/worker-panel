@@ -1,0 +1,36 @@
+.panel {
+  height: fit-content;
+  overflow: hidden;
+  background: var(--lzt-bg-content);
+  border: 1px solid var(--lzt-border);
+  border-radius: var(--lzt-radius-panel);
+}
+
+.header {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--lzt-border);
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  margin: 0;
+  color: var(--lzt-text-primary);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 19px;
+}
+
+.empty {
+  margin: 0;
+  padding: 12px 16px;
+  color: var(--lzt-text-muted);
+  font-size: 13px;
+  line-height: 17px;
+}
+
+@media (max-width: 480px) {
+  .panel {
+    border-radius: var(--lzt-radius-control) var(--lzt-radius-control) 0 0;
+  }
+}

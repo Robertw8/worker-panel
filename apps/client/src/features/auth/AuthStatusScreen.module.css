@@ -1,68 +1,82 @@
 .page {
-  display: grid;
   min-height: 100vh;
   min-height: 100dvh;
-  padding: 24px;
-  color: var(--color-text-primary);
-  background: var(--color-background);
-  place-items: center;
+  color: var(--lzt-text-primary);
+  background: var(--lzt-bg-page);
+}
+
+.main {
+  width: min(100%, var(--lzt-page-width));
+  margin: 0 auto;
+  padding-top: calc(var(--lzt-header-height) + 16px);
 }
 
 .card {
   display: grid;
-  width: min(100%, 404px);
-  min-height: 150px;
-  padding: 32px;
+  width: 380px;
+  max-width: 100%;
+  min-height: 136px;
+  padding: 24px;
   text-align: center;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-card);
+  background: var(--lzt-bg-content);
+  border-radius: 12px;
   place-items: center;
 }
 
 .spinner {
-  width: 26px;
-  height: 26px;
-  border: 2px solid var(--color-border);
-  border-top-color: var(--color-accent);
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--lzt-border);
+  border-top-color: var(--lzt-primary);
   border-radius: 50%;
   animation: spin 700ms linear infinite;
 }
 
 .message,
 .error {
-  margin: 16px 0 0;
-  line-height: 1.5;
+  margin: 14px 0 0;
+  font-size: 14px;
+  line-height: 18px;
 }
 
 .message {
-  color: var(--color-text-secondary);
+  color: var(--lzt-text-muted);
 }
 
 .error {
-  color: #d98d8d;
+  color: var(--lzt-error);
 }
 
 .button {
-  min-height: 42px;
-  margin-top: 20px;
-  padding: 0 22px;
-  color: var(--color-text-strong);
-  font-weight: 600;
+  height: 38px;
+  margin-top: 18px;
+  padding: 0 15px;
+  color: var(--lzt-text-strong);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 38px;
   cursor: pointer;
-  background: var(--color-accent-strong);
-  border: 1px solid rgb(255 255 255 / 8%);
-  border-radius: var(--radius-sm);
+  background: var(--lzt-bg-active);
+  border: 0;
+  border-radius: 10px;
+  transition:
+    background var(--lzt-transition-fast),
+    color var(--lzt-transition-fast),
+    transform var(--lzt-transition-fast);
 }
 
 .button:hover {
-  background: var(--color-accent-hover);
+  color: var(--lzt-text-strong);
+  background: var(--lzt-bg-hover);
+}
+
+.button:active {
+  transform: scale(0.97);
 }
 
 .button:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 3px;
+  outline: 2px solid var(--lzt-focus-ring);
+  outline-offset: 2px;
 }
 
 @keyframes spin {
@@ -71,8 +85,40 @@
   }
 }
 
+@media (max-width: 1220px) {
+  .main {
+    width: auto;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .main {
+    padding-top: calc(var(--lzt-header-height) + 8px);
+  }
+}
+
+@media (max-width: 860px) {
+  .main {
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .card {
+    width: 100%;
+    max-width: none;
+    border-radius: 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .spinner {
     animation: none;
+  }
+
+  .button {
+    transition: none;
   }
 }

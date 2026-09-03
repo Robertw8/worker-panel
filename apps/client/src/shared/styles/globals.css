@@ -3,25 +3,37 @@
 html {
   min-width: 320px;
   min-height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
   color-scheme: dark;
-  background: var(--color-background);
+  background: var(--lzt-bg-page);
+  scrollbar-gutter: stable;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
   min-width: 320px;
   min-height: 100vh;
   margin: 0;
-  color: var(--color-text-primary);
+  color: var(--lzt-text-primary);
   font-family:
-    Inter,
     -apple-system,
     BlinkMacSystemFont,
-    "Segoe UI",
+    Inter,
+    "Helvetica Neue",
     sans-serif;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  background: var(--color-background);
-  -webkit-font-smoothing: antialiased;
+  font-size: 14px;
+  line-height: 1.28;
+  overflow-wrap: break-word;
+  background: var(--lzt-bg-page);
+  -webkit-font-smoothing: subpixel-antialiased;
+  text-size-adjust: 100%;
 }
 
 #root {
@@ -30,4 +42,15 @@ body {
 
 button {
   font: inherit;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--lzt-focus-ring);
+  outline-offset: 2px;
+}
+
+::selection {
+  color: var(--lzt-text-strong);
+  background: rgb(0 186 120 / 34%);
 }

@@ -10,7 +10,7 @@ export default defineConfig({
     },
   },
   server: {
-    allowedHosts: ["clocks-region-engine-visited.trycloudflare.com"],
+    allowedHosts: ["jay-oregon-peas-printer.trycloudflare.com"],
     port: 5173,
     strictPort: true,
 
